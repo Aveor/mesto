@@ -10,6 +10,7 @@
     border: 2px solid #FFFFFF;
     border-radius: 2px;
     transition: opacity linear 0.5s;
+    outline: none;
   }
   
   .profile__add-button:hover {

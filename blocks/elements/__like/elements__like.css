@@ -9,6 +9,7 @@
     cursor: pointer;
     border: none;
     transition: opacity linear 0.5s;
+    outline: none;
   }
   
   .elements__like:hover {
