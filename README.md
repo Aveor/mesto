@@ -21,4 +21,4 @@
 
 **GitHub Pages**
 
-[Ссылка на проект](https://aveor.github.io/mesto/)
+[Ссылка на проект](https://aveor.github.io/mesto/index.html)
