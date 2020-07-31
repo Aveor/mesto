@@ -11,8 +11,8 @@
   @media screen and (max-width: 1023px) {
     .profile__name {
       font-size: 27px;
-      margin: 14px 0 0;
-      line-height: 2.07;
+      margin: 16px 0 0;
+      line-height: 49px;
       max-width: 300px;
       text-align: center;
     }
