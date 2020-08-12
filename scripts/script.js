@@ -33,3 +33,59 @@ function formSubmitHandler (evt) {
 }
 
 formElement.addEventListener('submit', formSubmitHandler);
+
+
+
+
+
+const initialCards = [
+    {
+        name: 'Архыз',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+        name: 'Челябинская область',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+        name: 'Иваново',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+        name: 'Камчатка',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+        name: 'Холмогорский район',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+];
+
+const gridElementCard = document.querySelector('.elements-template').content.querySelector('.elements__item');
+const gridElements = document.querySelector('.elements');
+
+function makeCard(element) {
+  const elementCard = gridElementCard.cloneNode(true);
+  const elementCardTitle = elementCard.querySelector('.elements__title');
+  const elementCardImg = elementCard.querySelector('.elements__image');
+  
+
+  elementCardTitle.textContent = element.name;
+  elementCardImg.src = element.link;
+  elementCardImg.alt = element.name;
+
+  return elementCard;
+
+}
+
+function renderCard(element) {
+    gridElements.prepend(makeCard(element));
+  
+    };
+
+initialCards.forEach((element) => {renderCard(element);
+});
