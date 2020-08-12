@@ -36,9 +36,11 @@
       <p class="footer__copyright">© 2020. Mesto Russia</p>
     </footer> 
 
-    <div class="popup">
+<!--popup profile-->
+
+    <div class="popup popup__profile">
       <form class="popup__container" name="formElement" method="POST">
-        <button class="popup__button-close" type="reset"></button>
+        <button class="popup__button-close popup__button-close_profile" type="reset"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
         <input class="popup__input popup__input_type_name" type="text" required placeholder="Ваше имя" name="nameInput">
         <input class="popup__input popup__input_type_job" type="text" required placeholder="О себе" name="jobInput">
@@ -46,6 +48,19 @@
       </form>
     </div>
   </div>
+
+<!--popup add card-->
+
+<div class="popup popup__add">
+  <form class="popup__container" name="formElement" method="POST">
+    <button class="popup__button-close popup__button-close_add" type="reset"></button>
+    <h3 class="popup__title">Новое место</h3>
+    <input class="popup__input popup__input_type_place" type="text" required placeholder="Название" name="nameInput">
+    <input class="popup__input popup__input_type_link" type="url" required placeholder="Ссылка на картинку" name="jobInput">
+    <button class="popup__button-save" type="submit">Создать</button>
+  </form>
+</div>
+</div>
 
 <!--template-->
 <template class="elements-template"> 
