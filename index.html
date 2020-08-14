@@ -39,7 +39,7 @@
 <!--popup profile-->
 
     <div class="popup popup__profile">
-      <form class="popup__container" name="formElement" method="POST">
+      <form class="popup__container popup__container_edit" name="formElement" method="POST">
         <button class="popup__button-close popup__button-close_profile" type="reset"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
         <input class="popup__input popup__input_type_name" type="text" required placeholder="Ваше имя" name="nameInput">
@@ -52,7 +52,7 @@
 <!--popup add card-->
 
 <div class="popup popup__add">
-  <form class="popup__container" name="formElement" method="POST">
+  <form class="popup__container popup__container_add" name="formElement" method="POST">
     <button class="popup__button-close popup__button-close_add" type="reset"></button>
     <h3 class="popup__title">Новое место</h3>
     <input class="popup__input popup__input_type_place" type="text" required placeholder="Название" name="nameInput">
@@ -60,6 +60,18 @@
     <button class="popup__button-save" type="submit">Создать</button>
   </form>
 </div>
+</div>
+
+<!--popup image-->
+
+<div class="popup popup__background" >
+  <div class="view">
+    <button class="popup__button-close popup__button-close_view" type="reset"></button>
+    <div class="view__item">
+      <img src="https://a.d-cd.net/9f6a725s-1920.jpg" class="view__image" alt="secvoya">
+      <p class="view__caption"></p>
+    </div>
+  </div>
 </div>
 
 <!--template-->
