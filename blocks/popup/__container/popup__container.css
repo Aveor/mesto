@@ -8,3 +8,10 @@
     position: relative;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
 }
+
+@media screen and (max-width: 520px) {
+    .popup__container {
+        max-width: 240px;
+        padding: 30px 20px;
+    }
+}

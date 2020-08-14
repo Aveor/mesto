@@ -150,7 +150,7 @@ function makeCard(element) {
     imgPopupTitle.textContent = elementCardTitle.textContent;
     imgPopupImg.src = elementCardImg.src;
     togglePopupView();
-    console.log('открыл');
+    
   });
 
   return elementCard;

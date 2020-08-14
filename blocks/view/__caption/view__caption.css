@@ -1,12 +1,9 @@
 .view__caption {
     color: white;
     font-size: 12px;
+    line-height: 15px;
     font-weight: 400;
-    margin-top: 17px;
+    margin-top: 10px;
   }
   
-  @media screen and (max-width: 450px) {
-    .view__caption {
-      margin-top: 10px;
-    }
-  }
+  
