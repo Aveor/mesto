@@ -36,7 +36,7 @@ function editForm() {
 
 // Функция сохранения данных профиля  
 
-function SubmitHandlerForm(evt) {
+function handleFormSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
@@ -45,7 +45,7 @@ function SubmitHandlerForm(evt) {
 
 // Функция сохранения новой карточки 
 
-function SubmitHandlerAddCard(evt) {
+function handleCardSubmit(evt) {
     evt.preventDefault();
     renderCard({ name: placeInput.value, link: linkInput.value })
     placeInput.value = '';
@@ -75,9 +75,9 @@ exitButtonEdit.addEventListener('click', () => {
     editForm();
 });
 
-formElementEdit.addEventListener('submit', SubmitHandlerForm);
+formElementEdit.addEventListener('submit', handleFormSubmit);
 
-formElementAdd.addEventListener('submit', SubmitHandlerAddCard);
+formElementAdd.addEventListener('submit', handleCardSubmit);
 
 // Создание карточки, клонирование, лайк и удаление
 
