@@ -21,13 +21,39 @@ const gridElementCard = document.querySelector('.elements-template').content.que
 const gridElements = document.querySelector('.elements');
 
 // Функция открытия popup
-
 function togglePopup(popupWindow) {
+    const popupOpen = popupWindow.classList.contains('popup_opened');
+    if (!popupOpen) {
+        //закрытие попап Esc
+        document.addEventListener('keydown', handleEscapeKeydown);
+        //закрытие попап по клику на оверлей
+        document.addEventListener('click', handleOverlayClick);
+    } else {
+        //снятие слушателя 
+        document.removeEventListener('keydown', handleEscapeKeydown);
+        //снятие слушателя 
+        document.removeEventListener('click', handleOverlayClick);
+    }
     popupWindow.classList.toggle('popup_opened');
 }
 
-// Функция загрузки значений в форму со страницы
+// Функция закрытия по нажатию Esc
+function handleEscapeKeydown(evt) {
+    const openPopup = document.querySelector('.popup_opened');
+    if (evt.key === 'Escape') {
+        togglePopup(openPopup);
+    };
+};
 
+// Функция закрытия по клику на оверлей
+function handleOverlayClick(evt) {
+    const openPopup = document.querySelector('.popup_opened');
+    if (evt.target.classList.contains('popup')) {
+        togglePopup(openPopup);
+    }
+};
+
+// Функция загрузки значений в форму со страницы
 function editForm() {
     togglePopup(popupEdit);
     nameInput.value = profileName.textContent;
@@ -35,7 +61,6 @@ function editForm() {
 }
 
 // Функция сохранения данных профиля  
-
 function handleFormSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
@@ -44,7 +69,6 @@ function handleFormSubmit(evt) {
 }
 
 // Функция сохранения новой карточки 
-
 function handleCardSubmit(evt) {
     evt.preventDefault();
     renderCard({ name: placeInput.value, link: linkInput.value })
