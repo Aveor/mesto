@@ -55,8 +55,10 @@ const toggleButtonState = (inputList, buttonElement) => {
   // Если есть хотя бы один невалидный инпут
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add('popup__button-save_disabled');
+    buttonElement.setAttribute("disabled", true);
   } else {
     buttonElement.classList.remove('popup__button-save_disabled');
+    buttonElement.removeAttribute("disabled", false);
   }
 };
 
@@ -80,10 +82,10 @@ const setEventListeners = (formElement) => {
 };
 
 ///Функция включения валидации
-const enableValidation = () => {
+const enableValidation = ({formSelector}) => {
   // Найдём все формы с указанным классом в DOM,
   // сделаем из них массив методом Array.from
-  const formList = Array.from(document.querySelectorAll('.popup__container'));
+  const formList = Array.from(document.querySelectorAll(formSelector));
   // Переберём полученную коллекцию
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
@@ -98,3 +100,6 @@ const enableValidation = () => {
 
 // Вызовем функцию
 enableValidation(dataValidation);
+
+
+
