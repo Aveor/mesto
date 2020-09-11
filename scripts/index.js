@@ -23,6 +23,7 @@ const exitButtonView = document.querySelector('.popup__button-close_view');
 const gridElementCard = document.querySelector('.elements-template').content.querySelector('.elements__item');
 const gridElements = document.querySelector('.elements'); 
 
+
 const initialCards = [
     {
         name: 'Архыз',
@@ -51,7 +52,7 @@ const initialCards = [
 ];
 
 // Функция открытия popup
-function togglePopup(popupWindow) {
+export function togglePopup(popupWindow) {
     const popupOpen = popupWindow.classList.contains('popup_opened');
     if (!popupOpen) {
         //Валидация формы
@@ -154,7 +155,6 @@ editButton.addEventListener('click', () => {
 exitButtonEdit.addEventListener('click', () => {
     editForm();
 });
-
 
 formElementEdit.addEventListener('submit', handleFormSubmit);
 

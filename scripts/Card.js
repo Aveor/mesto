@@ -1,3 +1,4 @@
+import { togglePopup } from './index.js'
 const popupPic = document.querySelector('.popup__background');
 
 export default class Card {
@@ -24,10 +25,7 @@ export default class Card {
         popupViewCaption.textContent = this._name;
         popupViewImg.src = this._link;
         popupViewImg.alt = this._name;
-        document.addEventListener('keydown', this._imgEscapeKeydown);
-        document.addEventListener('click', this._imgOverlayClick);
-
-        popupPic.classList.toggle('popup_opened');
+        togglePopup(popupPic);
     }
 
     // Функция лайков
@@ -39,19 +37,6 @@ export default class Card {
     _deleteCard(evt) {
         const removeCard = evt.target.closest('.elements__item');
         removeCard.remove();
-    }
-
-    // Функция закрытия по нажатию на Esc
-    _imgEscapeKeydown(evt) {
-        if (evt.key === 'Escape') {
-            popupPic.classList.remove('popup_opened');
-        }
-    }
-    //Функция закрытия по клику на оверлей
-    _imgOverlayClick(evt) {
-        if (evt.target.classList.contains('popup')) {
-            popupPic.classList.remove('popup_opened');
-        }
     }
 
     _setEventListeners() {
