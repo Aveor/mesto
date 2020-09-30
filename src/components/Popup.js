@@ -11,11 +11,13 @@ export default class Popup {
         this.close();
       }
     }
+    this.setEventListeners();
   }
   //Функция открытия
   open() {
     this._popupSelector.classList.add('popup_opened');
-    this._setEventListeners();
+    document.addEventListener('keydown', this._handleEscClose);
+    document.addEventListener('click', this._handleOverlayClick);
   }
   //Функция закрытия
   close() {
@@ -24,9 +26,7 @@ export default class Popup {
     document.removeEventListener('click', this._handleOverlayClick);
   }
 
-  _setEventListeners() {
+  setEventListeners() {
     this._popupSelector.querySelector('.popup__button-close').addEventListener('click', () => this.close());
-    document.addEventListener('keydown', this._handleEscClose);
-    document.addEventListener('click', this._handleOverlayClick);
   }
 }

@@ -5,6 +5,7 @@ import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
+import { initialCards, validationconfig } from '../components/utils/constants.js';
 
 const content = document.querySelector('.content');
 const editButton = content.querySelector('.profile__edit-button');
@@ -27,65 +28,29 @@ const imgPopupImg = popupView.querySelector('.view__image');
 const exitButtonView = document.querySelector('.popup__button-close_view');
 const gridElements = '.elements';
 const gridElementCard = '.elements-template';
-
 const profileAlt = document.querySelector('.profile__avatar');
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-
 const popupWithImage = new PopupWithImage(popupView);
+
 
 const cardList = new Section({
   items: initialCards,
-  renderer: (item) => {
-    const card = new Card({
-      data: item,
-      handleCardClick: () => {
-        popupWithImage.open(item);
-      }
-    }, gridElementCard);
-    const cardElement = card.makeCard();
-    cardList.addItem(cardElement);
-  }
+  renderer: (item) => cardRender(item)
 }, gridElements);
 
 const cardForm = new PopupWithForm({
-  formSubmit: (item) => {
-    const card = new Card({
-      data: item,
-      handleCardClick: () => {
-        popupWithImage.open(item);
-      }
-    }, gridElementCard);
-    const cardElement = card.makeCard();
-    cardList.addItem(cardElement);
-  }
+  formSubmit: (item) => cardRender(item)
 }, popupAdd);
 
+function cardRender(item) {
+  const card = new Card({
+    data: item,
+    handleCardClick: () => {
+      popupWithImage.open(item);
+    }
+  }, gridElementCard);
+  const cardElement = card.makeCard();
+  cardList.addItem(cardElement);
+}
 
 const openCardForm = () => {
   cardForm.open();
@@ -113,13 +78,7 @@ const openProfileForm = () => {
 function formValidation() {
   const formList = Array.from(document.querySelectorAll('.popup__container'));
   formList.forEach((form) => {
-    const validator = new FormValidator({
-      inputSelector: '.popup__input',
-      submitButtonSelector: '.popup__button-save',
-      inactiveButtonClass: 'popup__button-save_disabled',
-      inputErrorClass: 'popup__input_error',
-      errorClass: 'popup__input-error_active',
-    }, form);
+    const validator = new FormValidator(validationconfig, form);
     validator.enableValidation();
   });
 }
