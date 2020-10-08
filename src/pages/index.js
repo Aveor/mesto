@@ -5,7 +5,7 @@ import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
-import { validationconfig } from '../components/utils/constants.js';
+import { validationconfig } from '../utils/constants.js';
 import Api from '../components/Api.js';
 
 const content = document.querySelector('.content');
