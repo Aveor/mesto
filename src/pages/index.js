@@ -84,7 +84,7 @@ const profileForm = new PopupWithForm({
 
 
 
-const avatarForm = new PopupWithForm({ //отправляем информацию, введенную пользоавателем на сервер
+const avatarForm = new PopupWithForm({ 
   formSubmit: (item) => {
     loading(true, popupAvatar, 'Сохранить', 'Сохранение...');
     api.updateAvatar(item.link)
