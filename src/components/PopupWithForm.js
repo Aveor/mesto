@@ -34,15 +34,15 @@ export default class PopupWithForm extends Popup {
     });
   }
 
-  blockSubmit() { // функция обнуления ошибок
+  blockSubmit() { 
     const buttonSave = this._popupSelector.querySelector('.popup__button-save');
 
     this._popupSelector.querySelectorAll(".popup__input").forEach((input) => {
-      if (!input.value) { //если в инпут нет значений
-        buttonSave.classList.add('popup__button-save_disabled'); //добавляем класс деактивирующий кнопку
+      if (!input.value) { 
+        buttonSave.classList.add('popup__button-save_disabled'); 
         buttonSave.setAttribute('disabled', 'true');
       } else {
-        buttonSave.classList.remove('popup__button-save_disabled'); //удаляет класс деактивирующий кнопку
+        buttonSave.classList.remove('popup__button-save_disabled'); 
         buttonSave.removeAttribute('disabled');
       }
     });
