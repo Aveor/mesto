@@ -20,6 +20,10 @@ const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_job');
 const formElementEdit = document.querySelector('.popup__container_edit');
 const formElementAdd = document.querySelector('.popup__container_add');
+const formElementAvatar = document.querySelector('.popup__container_type_avatar');
+const validatorAdd = new FormValidator(validationconfig, formElementAdd);
+const validatorEdit = new FormValidator(validationconfig, formElementEdit);
+const validatorAvatar = new FormValidator(validationconfig, formElementAvatar);
 const addButton = content.querySelector('.profile__add-button');
 const placeInput = document.querySelector('.popup__input_type_place');
 const linkInput = document.querySelector('.popup__input_type_link');
@@ -133,6 +137,7 @@ const openAvatarForm = () => {
 }
 
 const openCardForm = () => {
+  cardForm.blockSubmit();
   cardForm.open();
 };
 
@@ -227,15 +232,12 @@ Promise.all([api.getInfoUser(), api.getInitialCards()])
   });
 
 
-function formValidation() {
-  const formList = Array.from(document.querySelectorAll('.popup__container'));
-  formList.forEach((form) => {
-    const validator = new FormValidator(validationconfig, form);
-    validator.enableValidation();
-  });
-}
+
+
 
 addButton.addEventListener('click', openCardForm);
 editButton.addEventListener('click', openProfileForm);
 avatarButton.addEventListener("click", openAvatarForm);
-formValidation();
+validatorAdd.enableValidation();
+validatorEdit.enableValidation();
+validatorAvatar.enableValidation();
